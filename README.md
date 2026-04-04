@@ -1,75 +1,62 @@
-# React + TypeScript + Vite
+# Porfolio React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación de portafolio construida con React, TypeScript y Vite. Muestra una selección de proyectos web con un diseño retro inspirado en consolas clásicas, además de una vista previa en modal para cada proyecto.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Proyecto hecho con React 19 y Vite
+- Estilo retro con efectos CRT, scanlines y animaciones suaves
+- Lista de proyectos clicables
+- Modal de vista previa que abre el proyecto en una nueva pestaña al hacer click
+- Interacción accesible por teclado
 
-## React Compiler
+## Proyectos incluidos
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- `UBISHARE` — plataforma de ubicación compartida en tiempo real
+- `JUEGO PAREJAS` — juego de memoria con ranking en línea
+- `STROMROL.ES` — generador de fichas y recursos de rol
+- `GORILAS BAS` — homenaje a Gorillas.bas en JavaScript
 
-Note: This will impact Vite dev & build performances.
+## Tecnología
 
-## Expanding the ESLint configuration
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- ESLint
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Ejecución local
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Instala dependencias y ejecuta el servidor de desarrollo:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Abre el enlace que muestra Vite en tu terminal para ver la app.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Producción
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Genera los archivos de producción con:
+
+```bash
+npm run build
 ```
+
+Y revisa la versión optimizada localmente con:
+
+```bash
+npm run preview
+```
+
+## Estructura principal
+
+- `src/App.tsx` — componente principal con la lista de proyectos y la vista previa en modal
+- `src/index.css` — estilos globales y utilidades personalizadas
+- `tailwind.config.js` — configuración de Tailwind CSS
+- `vite.config.ts` — configuración de Vite
+
+## Notas
+
+Este repositorio está pensado como un portafolio interactivo para exhibir proyectos reales y demostrar una UI retro moderna con React y Tailwind.
