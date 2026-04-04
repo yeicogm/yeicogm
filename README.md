@@ -1,4 +1,4 @@
-# Porfolio React App
+# Porfolio
 
 <p align="center">
   <a href="https://yeicogm.github.io/Yeicogm/" target="_blank" rel="noopener noreferrer">
