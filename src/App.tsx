@@ -3,28 +3,28 @@ import { useState } from "react";
 const cards = [
   {
     title: "UBISHARE",
-    label: "WEB",
+    tags: ["Ubicacion", "Comunicación", "Mapas"],
     url: "https://ubishare.netlify.app/",
     description:
       "Plataforma de ubicación compartida en tiempo real que permite ver a tu equipo en un mapa usando una clave de sesión.",
   },
   {
     title: "JUEGO PAREJAS",
-    label: "GAME",
+    tags: ["BD", "WebSockets", "Multijugador"],
     url: "https://juegoparejas.netlify.app/",
     description:
       "Juego de memoria con modo individual y duelo multijugador en línea, incluyendo rankings de victorias y derrotas.",
   },
   {
     title: "STROMROL.ES",
-    label: "WEB",
+    tags: ["React", "Tailwind CSS", "Generador dinámico"],
     url: "https://stromrol.es/",
     description:
-      "Generador de fichas de rol y recursos de juego con estilo dinámico, actualizado desde el repositorio de StromRol.",
+      "Generador de fichas de rol y recursos de juego con estilo dinámico",
   },
   {
     title: "GORILAS BAS",
-    label: "WEB",
+    tags: ["JavaScript", "Canvas", "Animación"],
     url: "https://yeicogm.github.io/GorilasBas/",
     description:
       "Homenaje a Gorillas.bas en JavaScript: duelo por turnos lanzando plátanos ajustando ángulo y velocidad.",
@@ -87,9 +87,16 @@ function App() {
                   </h2>
                 </div>
                 <div className="grow flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                  <span className="text-sm bg-[#0000ff] text-black px-2 py-0.5 font-bold whitespace-nowrap group-hover:bg-white">
-                    {card.label}
-                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {card.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-sm bg-[#0000ff] text-black px-2 py-0.5 font-bold whitespace-nowrap group-hover:bg-white"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                   <p className="text-base text-[#d7d7d7] leading-relaxed group-hover:text-white">
                     {card.description}
                   </p>
