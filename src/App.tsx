@@ -213,7 +213,7 @@ function App() {
           className={`absolute inset-0 pointer-events-none scanlines z-10 ${isLoaded ? "animate-zx-reveal" : ""}`}
         />
         <div
-          className={`relative z-20 w-full max-w-4xl mx-auto grow flex flex-col pt-2 sm:pt-8 ${isLoaded ? "animate-zx-reveal" : "opacity-0"}`}
+          className={`relative z-20 w-full max-w-none mx-auto grow flex flex-col pt-2 sm:pt-8 px-4 sm:px-6 ${isLoaded ? "animate-zx-reveal" : "opacity-0"}`}
         >
           <header className="mb-2">
             <div className="flex gap-2 mb-6">
