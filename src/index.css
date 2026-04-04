@@ -2,32 +2,23 @@
 
 :root {
   color-scheme: dark;
-  --bg: #05060f;
-  --text: #adb1c8;
-  --text-h: #f7f8ff;
-  --text-muted: #9aa3c1;
-  --text-secondary: #7b84ac;
-  --accent: #60d6ff;
+  --bg: #000000;
+  --text: #d7d7d7;
+  --zx-red: #ff0000;
+  --zx-yellow: #ffff00;
+  --zx-green: #00ff00;
+  --zx-blue: #0000ff;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: Inter, system-ui, sans-serif;
+    font-family: "Courier New", Courier, monospace;
     color: var(--text);
-    background:
-      radial-gradient(
-        circle at top left,
-        rgba(96, 214, 255, 0.12),
-        transparent 25%
-      ),
-      radial-gradient(
-        circle at bottom right,
-        rgba(229, 127, 255, 0.1),
-        transparent 24%
-      ),
-      var(--bg);
+    background-color: var(--bg);
     min-height: 100%;
+    text-rendering: optimizeLegibility;
+    letter-spacing: 0.05em;
   }
 
   body {
@@ -42,47 +33,133 @@
     box-sizing: border-box;
   }
 
-  a {
-    color: inherit;
-  }
-
-  button,
-  input,
-  textarea,
-  select {
-    font: inherit;
+  ::selection {
+    background-color: var(--zx-blue);
+    color: #000;
   }
 
   h1,
   h2,
   h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    color: var(--text-h);
-  }
-
-  p {
-    margin: 0;
+  p,
+  span {
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
   }
 }
 
 @layer utilities {
-  .text-muted {
-    color: var(--text-muted);
+  .crt-effect {
+    background: #000;
+    position: relative;
   }
 
-  .text-secondary {
-    color: var(--text-secondary);
+  .crt-effect::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background:
+      linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+      linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.06),
+        rgba(255, 255, 0, 0.02),
+        rgba(0, 255, 0, 0.06),
+        rgba(0, 0, 255, 0.06)
+      );
+    z-index: 20;
+    background-size:
+      100% 4px,
+      3px 100%;
+    pointer-events: none;
   }
 
-  .text-accent {
-    color: var(--accent);
+  .scanlines {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.2)
+    );
+    background-size: 100% 8px;
+    z-index: 10;
   }
 
-  .shadow-glow {
-    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
+  .noise-overlay {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2VGaWx0ZXIpIi8+PC9zdmc+");
+  }
+
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      opacity: 1;
+      filter: saturate(100%);
+    }
+    50% {
+      opacity: 0.8;
+      filter: saturate(150%) hue-rotate(15deg);
+    }
+  }
+
+  .zx-loading-bg {
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--zx-blue),
+      var(--zx-blue) 10px,
+      var(--zx-yellow) 10px,
+      var(--zx-yellow) 20px
+    );
+    background-size: 100% 20px;
+    animation: zx-tape-load 8s linear infinite;
+  }
+
+  @keyframes zx-tape-load {
+    0% {
+      background-position-y: 0px;
+    }
+    15% {
+      background-position-y: 0px;
+    } /* Pausa inicial larga (animación quieta) */
+    25% {
+      background-position-y: -168px;
+    } /* Moviéndose lento (6 ciclos de 28px) */
+    25.01% {
+      background-position-y: 0px;
+    } /* Se detiene instantáneamente */
+    65% {
+      background-position-y: 0px;
+    } /* Pausa media muy larga */
+    75% {
+      background-position-y: -168px;
+    } /* Moviéndose lento de nuevo */
+    75.01% {
+      background-position-y: 0px;
+    } /* Se detiene instantáneamente */
+    100% {
+      background-position-y: 0px;
+    } /* Pausa final larga */
   }
 }
 
