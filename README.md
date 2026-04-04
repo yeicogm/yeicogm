@@ -1,5 +1,9 @@
 # Porfolio React App
 
+Visita la versión en vivo en GitHub Pages:
+
+https://yeicogm.github.io/Porfolio/
+
 Aplicación de portafolio construida con React, TypeScript y Vite. Muestra una selección de proyectos web con un diseño retro inspirado en consolas clásicas, además de una vista previa en modal para cada proyecto.
 
 ## Características
