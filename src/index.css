@@ -135,6 +135,55 @@
     animation: zx-tape-load 8s linear infinite;
   }
 
+  .zx-loading-pilot {
+    background: repeating-linear-gradient(
+      to bottom,
+      #00ffff,
+      #00ffff 16px,
+      var(--zx-red) 16px,
+      var(--zx-red) 32px
+    );
+    background-size: 100% 32px;
+    animation: zx-tape-fast 0.1s linear infinite;
+  }
+
+  .zx-loading-data {
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--zx-blue),
+      var(--zx-blue) 4px,
+      var(--zx-yellow) 4px,
+      var(--zx-yellow) 8px
+    );
+    background-size: 100% 8px;
+    animation: zx-tape-fast 0.05s linear infinite;
+  }
+
+  .animate-zx-reveal {
+    /* Simulamos las 24 filas de caracteres del ZX Spectrum donde el color
+       caía de forma muy escalonada y visible. 192 pasos es a 60fps, 
+       por lo que el ojo humano lo ve "suave". Con 24 o 32 pasos vemos el bloque. */
+    animation: zx-reveal 2s steps(24) forwards;
+  }
+
+  @keyframes zx-reveal {
+    0% {
+      clip-path: inset(0 0 100% 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  @keyframes zx-tape-fast {
+    from {
+      background-position-y: 0px;
+    }
+    to {
+      background-position-y: -64px;
+    }
+  }
+
   @keyframes zx-tape-load {
     0% {
       background-position-y: 0px;
