@@ -3,8 +3,8 @@
 Visita la versión en vivo en GitHub Pages:
 
 <p align="center">
-  <a href="https://yeicogm.github.io/Yeicogm/" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:16px 28px;font-size:18px;font-weight:700;color:#ffffff;background:#2563eb;border-radius:12px;text-decoration:none;box-shadow:0 10px 25px rgba(37,99,235,0.25);">
-    Abrir sitio en GitHub Pages
+  <a href="https://yeicogm.github.io/Yeicogm/" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/Abrir_Sitio-Yeicogm.github.io%2FYeicogm-2563eb?style=for-the-badge&logo=github" alt="Abrir sitio en GitHub Pages" />
   </a>
 </p>
 
