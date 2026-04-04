@@ -23,6 +23,13 @@ const cards = [
       "Generador de fichas de rol y recursos de juego con estilo dinámico",
   },
   {
+    title: "RESUMIDOR WEB",
+    tags: ["IA", "Local", "Resumen automático"],
+    url: "https://resumidorweb.netlify.app/",
+    description:
+      "Herramienta web para resumir textos automáticamente y obtener versiones condensadas en segundos.",
+  },
+  {
     title: "GORILAS BAS",
     tags: ["JavaScript", "Canvas", "Animación"],
     url: "https://yeicogm.github.io/GorilasBas/",
