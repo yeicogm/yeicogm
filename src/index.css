@@ -168,3 +168,15 @@
     font-size: 16px;
   }
 }
+
+.preview-pane {
+  height: 420px;
+}
+
+.preview-iframe-frame {
+  display: block;
+  width: 138.9%;
+  height: 138.9%;
+  transform: scale(0.72);
+  transform-origin: top center;
+}

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const cards = [
   {
     title: "UBISHARE",
@@ -30,6 +32,10 @@ const cards = [
 ];
 
 function App() {
+  const [previewCard, setPreviewCard] = useState<(typeof cards)[number] | null>(
+    null,
+  );
+
   return (
     <main className="crt-effect relative min-h-screen zx-loading-bg text-[#d7d7d7] font-['Courier_New',monospace] uppercase flex flex-col p-6 sm:p-12 overflow-hidden">
       {/* Inner black screen with the animated loading border outside */}
@@ -60,55 +66,91 @@ function App() {
           {cards.map((card) => (
             <article
               key={card.title}
-              className="group flex flex-col sm:flex-row sm:items-center gap-4 py-4 px-6 border-2 border-transparent hover:border-[#ffff00] hover:bg-[#0000ff] transition-none cursor-pointer"
+              onClick={() => card.url && setPreviewCard(card)}
+              onKeyDown={(event) => {
+                if (card.url && (event.key === "Enter" || event.key === " ")) {
+                  setPreviewCard(card);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              className="group flex flex-col gap-4 w-full py-4 px-6 border-2 border-transparent hover:border-[#ffff00] hover:bg-[#0000ff] transition-none cursor-pointer"
             >
-              {card.url ? (
-                <a
-                  href={card.url}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="contents"
-                >
-                  <div className="flex items-center gap-4 sm:w-1/3">
-                    <span className="text-[#00ff00] sm:text-xl font-bold animate-pulse-slow">
-                      {"\u25A0"}
-                    </span>
-                    <h2 className="text-xl sm:text-2xl font-bold text-white zx-text-yellow group-hover:text-black group-hover:drop-shadow-none">
-                      {card.title}
-                    </h2>
-                  </div>
-                  <div className="grow flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                    <span className="text-sm bg-[#0000ff] text-black px-2 py-0.5 font-bold whitespace-nowrap group-hover:bg-white">
-                      {card.label}
-                    </span>
-                    <p className="text-base text-[#d7d7d7] leading-relaxed group-hover:text-white">
-                      {card.description}
-                    </p>
-                  </div>
-                </a>
-              ) : (
-                <>
-                  <div className="flex items-center gap-4 sm:w-1/3">
-                    <span className="text-[#00ff00] sm:text-xl font-bold animate-pulse-slow">
-                      {"\u25A0"}
-                    </span>
-                    <h2 className="text-xl sm:text-2xl font-bold text-white zx-text-yellow group-hover:text-black group-hover:drop-shadow-none">
-                      {card.title}
-                    </h2>
-                  </div>
-                  <div className="grow flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                    <span className="text-sm bg-[#0000ff] text-black px-2 py-0.5 font-bold whitespace-nowrap group-hover:bg-white">
-                      {card.label}
-                    </span>
-                    <p className="text-base text-[#d7d7d7] leading-relaxed group-hover:text-white">
-                      {card.description}
-                    </p>
-                  </div>
-                </>
-              )}
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <div className="flex items-center gap-4 sm:w-1/3">
+                  <span className="text-[#00ff00] sm:text-xl font-bold animate-pulse-slow">
+                    {"\u25A0"}
+                  </span>
+                  <h2 className="text-xl sm:text-2xl font-bold text-white zx-text-yellow group-hover:text-black group-hover:drop-shadow-none">
+                    {card.title}
+                  </h2>
+                </div>
+                <div className="grow flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                  <span className="text-sm bg-[#0000ff] text-black px-2 py-0.5 font-bold whitespace-nowrap group-hover:bg-white">
+                    {card.label}
+                  </span>
+                  <p className="text-base text-[#d7d7d7] leading-relaxed group-hover:text-white">
+                    {card.description}
+                  </p>
+                </div>
+              </div>
             </article>
           ))}
         </section>
+
+        {previewCard ? (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4">
+            <div className="relative w-full max-w-5xl overflow-hidden rounded-4xl border border-white/10 bg-[#020305]/95 shadow-[0_30px_90px_rgba(0,0,0,0.7)]">
+              <header className="flex flex-col gap-4 border-b border-white/10 bg-[#05070f]/90 px-6 py-5 backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-[#00ff00] font-semibold">
+                    Vista previa
+                  </p>
+                  <h3 className="mt-2 text-2xl font-bold text-white">
+                    {previewCard.title}
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setPreviewCard(null)}
+                  className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white/15"
+                >
+                  Cerrar
+                </button>
+              </header>
+
+              <div className="relative h-[75vh] w-full bg-[#05070f]">
+                <button
+                  type="button"
+                  onClick={() =>
+                    window.open(
+                      previewCard.url,
+                      "_blank",
+                      "noopener,noreferrer",
+                    )
+                  }
+                  aria-label="Abrir proyecto en nueva pestaña"
+                  className="absolute inset-0 z-10 cursor-pointer bg-transparent"
+                />
+                <iframe
+                  src={previewCard.url}
+                  title={`Vista previa ${previewCard.title}`}
+                  sandbox="allow-scripts allow-same-origin allow-forms"
+                  className="h-full w-full border-0 bg-[#05070f]"
+                />
+                <div className="absolute bottom-4 right-4 z-20 rounded-full bg-black/70 px-3 py-1 text-xs font-semibold text-white">
+                  Click para abrir proyecto
+                </div>
+              </div>
+
+              <div className="px-6 py-5">
+                <p className="text-sm leading-6 text-[#d7d7d7]">
+                  {previewCard.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : null}
 
         <footer className="mt-auto pt-16 pb-8 flex items-end">
           <p className="text-base sm:text-xl text-[#d7d7d7]">
