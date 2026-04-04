@@ -47,22 +47,23 @@ function App() {
       <div className="absolute inset-0 pointer-events-none scanlines z-10" />
 
       <div className="relative z-20 w-full max-w-4xl mx-auto grow flex flex-col pt-2 sm:pt-8">
-        <header className="mb-16">
+        <header className="mb-2">
           <div className="flex gap-2 mb-6">
             <span className="w-4 h-4 bg-[#ff0000] inline-block shadow-[0_0_10px_#ff0000]" />
             <span className="w-4 h-4 bg-[#ffff00] inline-block shadow-[0_0_10px_#ffff00]" />
             <span className="w-4 h-4 bg-[#00ff00] inline-block shadow-[0_0_10px_#00ff00]" />
             <span className="w-4 h-4 bg-[#0000ff] inline-block shadow-[0_0_10px_#0000ff]" />
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-widest drop-shadow-[2px_2px_0px_#ff0000]">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-2 tracking-widest drop-shadow-[2px_2px_0px_#ff0000] text-center">
             Ejercicios Javascript React
           </h1>
           <p className="text-[#ffff00] text-lg sm:text-xl font-bold">
             0 OK, 0:1
+            <span className="inline-block h-[1.1em] w-[0.35rem] bg-[#ffff00] ml-2 align-middle animate-blink" />
           </p>
         </header>
 
-        <section className="grow flex flex-col gap-6 w-full">
+        <section className="grow flex flex-col gap-1 w-full">
           {cards.map((card) => (
             <article
               key={card.title}
