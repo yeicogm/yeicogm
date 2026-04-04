@@ -225,7 +225,7 @@ function App() {
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-2 tracking-widest drop-shadow-[2px_2px_0px_#ff0000] text-center">
               Ejercicios Javascript React
             </h1>
-            <p className="text-[#ffff00] text-lg sm:text-xl font-bold">
+            <p className="text-[#ffff00] text-lg sm:text-xl font-bold text-center">
               0 OK, 0:1
               <span className="inline-block h-[1.1em] w-[0.35rem] bg-[#ffff00] ml-2 align-middle animate-blink" />
             </p>
@@ -248,31 +248,29 @@ function App() {
                 tabIndex={0}
                 className="group flex flex-col gap-4 w-full py-4 px-6 border-2 border-transparent hover:border-[#ffff00] hover:bg-[#0000ff] transition-none cursor-pointer"
               >
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <div className="flex items-center gap-4 sm:w-1/3">
+                <div className="flex flex-col gap-4 sm:items-start sm:justify-between sm:flex-row">
+                  <div className="flex items-center gap-4 min-w-0">
                     <span className="text-[#00ff00] sm:text-xl font-bold animate-pulse-slow">
                       {"\u25A0"}
                     </span>
-                    <h2 className="text-xl sm:text-2xl font-bold text-white zx-text-yellow group-hover:text-black group-hover:drop-shadow-none">
+                    <h2 className="text-xl sm:text-2xl font-bold text-white zx-text-yellow group-hover:text-black group-hover:drop-shadow-none truncate">
                       {card.title}
                     </h2>
                   </div>
-                  <div className="grow flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                    <div className="flex flex-wrap gap-2">
-                      {card.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-sm bg-[#0000ff] text-black px-2 py-0.5 font-bold whitespace-nowrap group-hover:bg-white"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="text-base text-[#d7d7d7] leading-relaxed group-hover:text-white">
-                      {card.description}
-                    </p>
+                  <div className="flex flex-wrap gap-2 justify-start sm:justify-end min-w-0">
+                    {card.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-sm bg-[#0000ff] text-black px-2 py-0.5 font-bold whitespace-nowrap group-hover:bg-white"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
+                <p className="text-base text-[#d7d7d7] leading-relaxed group-hover:text-white text-left">
+                  {card.description}
+                </p>
               </article>
             ))}
           </section>
