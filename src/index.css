@@ -17,8 +17,17 @@
     scroll-behavior: smooth;
     font-family: Inter, system-ui, sans-serif;
     color: var(--text);
-    background: radial-gradient(circle at top left, rgba(96, 214, 255, 0.12), transparent 25%),
-      radial-gradient(circle at bottom right, rgba(229, 127, 255, 0.1), transparent 24%),
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(96, 214, 255, 0.12),
+        transparent 25%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        rgba(229, 127, 255, 0.1),
+        transparent 24%
+      ),
       var(--bg);
     min-height: 100%;
   }
@@ -29,7 +38,9 @@
     background: transparent;
   }
 
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
@@ -44,7 +55,12 @@
     font: inherit;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0;
     color: var(--text-h);
   }
