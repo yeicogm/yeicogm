@@ -46,10 +46,10 @@ function App() {
           {cards.map((card) => (
             <article
               key={card.title}
-              className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/95 p-8 shadow-[0_28px_90px_rgba(0,0,0,0.35)] transition duration-500 hover:-translate-y-8 hover:shadow-[0_40px_140px_rgba(56,189,248,0.2)]"
+              className="relative overflow-hidden rounded-4xl border border-white/10 bg-slate-900/95 p-8 shadow-[0_28px_90px_rgba(0,0,0,0.35)] transition duration-500 hover:-translate-y-8 hover:shadow-[0_40px_140px_rgba(56,189,248,0.2)]"
             >
-              <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top_left,rgba(96,214,255,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.08),transparent_35%)] opacity-90" />
-              <div className="absolute inset-0 rounded-[2rem] border border-white/10 bg-slate-950/80 backdrop-blur-sm" />
+              <div className="absolute inset-0 rounded-4xl bg-[radial-gradient(circle_at_top_left,rgba(96,214,255,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.08),transparent_35%)] opacity-90" />
+              <div className="absolute inset-0 rounded-4xl border border-white/10 bg-slate-950/80 backdrop-blur-sm" />
               <div className="relative z-10 flex h-full flex-col justify-between">
                 <span className="inline-flex items-center rounded-full bg-white/5 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-cyan-300/80">
                   {card.label}
