@@ -2,8 +2,15 @@ import { useState } from "react";
 
 const cards = [
   {
+    title: "TRAMAMENTAL",
+    tags: ["Juego", "Iframe", "Enlaces internos"],
+    url: "https://tramamental.netlify.app/",
+    description:
+      "Mini-juego rápido para navegar desde un artículo inicial hasta otro usando solo enlaces internos antes de que termine el tiempo.",
+  },
+  {
     title: "UBISHARE",
-    tags: ["Ubicacion", "Comunicación", "Mapas"],
+    tags: ["Ubicación", "Comunicación", "Mapas"],
     url: "https://ubishare.netlify.app/",
     description:
       "Plataforma de ubicación compartida en tiempo real que permite ver a tu equipo en un mapa usando una clave de sesión.",

@@ -8,6 +8,7 @@
 
 ## Proyectos incluidos
 
+- `TRAMAMENTAL` — Mini-juego rápido para navegar desde un artículo inicial hasta otro usando solo enlaces internos antes de que termine el tiempo.
 - `UBISHARE` — plataforma de ubicación compartida en tiempo real
 - `JUEGO PAREJAS` — juego de memoria con ranking en línea
 - `STROMROL.ES` — generador de fichas y recursos de rol
