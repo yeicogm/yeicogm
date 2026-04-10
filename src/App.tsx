@@ -3,7 +3,7 @@ import { useState } from "react";
 const cards = [
   {
     title: "TRAMAMENTAL",
-    tags: ["Juego", "Iframe", "Enlaces internos"],
+    tags: ["Juego", "Iframe", "Enlaces internos", "BD"],
     url: "https://tramamental.netlify.app/",
     description:
       "Mini-juego rápido para navegar desde un artículo inicial hasta otro usando solo enlaces internos antes de que termine el tiempo.",
