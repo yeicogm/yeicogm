@@ -13,3 +13,4 @@
 - `JUEGO PAREJAS` — juego de memoria con ranking en línea
 - `STROMROL.ES` — generador de fichas y recursos de rol
 - `GORILAS BAS` — homenaje a Gorillas.bas en JavaScript
+- `ARKANOID CLONE` — clon de Arkanoid en JavaScript con niveles y físicas de rebote

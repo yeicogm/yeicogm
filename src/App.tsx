@@ -43,6 +43,13 @@ const cards = [
     description:
       "Homenaje a Gorillas.bas en JavaScript: duelo por turnos lanzando plátanos ajustando ángulo y velocidad.",
   },
+  {
+    title: "ARKANOID CLONE",
+    tags: ["JavaScript", "Canvas", "Juego"],
+    url: "https://yeicogm.github.io/ArkanoidClone/",
+    description:
+      "Clon de Arkanoid desarrollado en JavaScript y Canvas con niveles, rebotes y efectos visuales retro.",
+  },
 ];
 
 function ZxLoading({ onComplete }: { onComplete: () => void }) {
