@@ -14,3 +14,4 @@
 - `STROMROL.ES` — generador de fichas y recursos de rol
 - `GORILAS BAS` — homenaje a Gorillas.bas en JavaScript
 - `ARKANOID CLONE` — clon de Arkanoid en JavaScript con niveles y físicas de rebote
+- `LABERINTO` — juego de laberinto en JavaScript y Canvas para encontrar la salida
