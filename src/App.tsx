@@ -50,6 +50,13 @@ const cards = [
     description:
       "Clon de Arkanoid desarrollado en JavaScript y Canvas con niveles, rebotes y efectos visuales retro.",
   },
+  {
+    title: "LABERINTO",
+    tags: ["JavaScript", "Canvas", "Juego"],
+    url: "https://laberintogame.netlify.app/",
+    description:
+      "Juego de laberinto en JavaScript y Canvas: genera mapas, recorre pasillos y encuentra la salida en el menor tiempo posible.",
+  },
 ];
 
 function ZxLoading({ onComplete }: { onComplete: () => void }) {
